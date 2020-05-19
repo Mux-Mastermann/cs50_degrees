@@ -91,6 +91,21 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    start = Node(source, None, None)
+    frontier = StackFrontier()
+    frontier.add(start)
+
+    explored = set()
+
+    while True:
+        if frontier.empty():
+            raise Exception("no solution")
+        node = frontier.remove()
+        if node == target:
+            return node
+        explored.add(node.state)
+
+
 
     # TODO
     raise NotImplementedError
